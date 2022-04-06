@@ -1,152 +1,94 @@
-struct Precios{
-  private let ganancia = 0.2
-  var precio = 0.0
+import Foundation
+class OperacionesBasicas{
+     var numero1:Int = 0
+     var numero2:Int = 0
 
-  func precioParcial()->Double{
-    let pagar = self.precio+(self.precio*self.ganancia)
-    return pagar
-  }
-}
-class Tienda{
-  var ruc:String=""
-  var nombre:String=""
-  var ganancia = "24%"
-}
-class Producto{
-  var codigo:String=""
-  var nombre:String=""
-  var precios = Precios()
-}
+     func Sumar(){
+         print("La suma de \(numero1) con \(numero2) es: \(numero1 + numero2)")
+     }
 
-class Cliente{
-  var dni = 0
-  var nombre : String
-  var productos : [Producto]
-  init(dni:Int,nombre:String, productos:[Producto]){
-    self.dni = dni
-    self.nombre = nombre
-    self.productos = productos
-  }
+    func Restar(){
+         print("La resta de \(numero1) con \(numero2) es: \(numero1 - numero2)")
+     }
 
-  func listaProductosComprados(){
-    print("-----------------------------------")
-    for producto in self.productos{
-      let codigoProducto = producto.codigo
-      let nombreProducto = producto.nombre
-      let precioFinal = producto.precios.precioParcial()
-      print("Codigo: \(codigoProducto)")
-      print("Nombre Producto: \(nombreProducto)")
-      print("Precio: \(precioFinal)")
+     func Multiplicar(){
+         print("El producto de de \(numero1) con \(numero2) es: \(numero1 * numero2)")
+     }
+
+     func Dividir()->String{
+         var res:String = ""
+         if numero1 == 0 || numero2 == 0 {
+             res = String("¡¡No esta definido!!")
+         }else{
+             res = String(Double(numero1) / Double(numero2))
+         }
+         return res
+     }
+	  }
+
+ class OperacionesAvanzadas: OperacionesBasicas{
+     var numero:Int = 0
+     var raiz:Int = 0
+     var potencia:Int = 0
+
+     func Potencia(numero: Int,potencia: Int){
+         let res = pow(Double(numero), Double(potencia))
+         print("El número \(numero) a la potencia de \(potencia) es: \(res)")
+     }
+
+     func Raiz(numero: Int, raiz: Int){
+         let res = pow(Double(numero), (1/Double(raiz)))
+         print("La raiz \(raiz) de \(numero) es: \(res)")
+     }
+
+     func Factorial()->String{
+       var res:String = ""
+       if numero == 0 || numero == 1{
+         res = String("1.0")
+     }else{
+         res = String((1...numero).map(Double.init).reduce(1.0, *)) 
+     }
+       return res
     }
-  }
-  func listarPagarGeneral (){
-    var totalSum = Double(0)
 
-  
-    print("...................................")
-    for producto in self.productos{ 
-    let precioFinal = producto.precios.precioParcial()
-    let preciofinalahorasi = Double(precioFinal)
-    totalSum = (totalSum + preciofinalahorasi)
-  
-}   
-    print("TOTAL: \(totalSum)")
-    print("︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼")
-  }
-  }
+    func Sumatoria (numero: Int) {
+         var res = 0
+         res = (numero*(numero+1))/2
+         print("La sumatoria de números consecutivos hasta el \(numero) es: \(res)")
+     }
+ }
+   var operaciones = OperacionesBasicas()
+   print("Operaciones básicas")
+   print("--------------------")
+   print("Ingresar el número 1")
+   let entrada = readLine()!
+   let numero1 = Int(entrada)!
+   print("Ingresar el número 2")
+   let entrada2 = readLine()!
+   let numero2 = Int(entrada2)!
+  operaciones.numero1 = numero1
+  operaciones.numero2 = numero2
+  operaciones.Sumar()
+  operaciones.Restar()
+  operaciones.Multiplicar()
+  print("La division de \(numero1) con \(numero2) es: \(operaciones.Dividir())")
 
-//instancias
-var productos = [Producto]()
-var productos2 = [Producto]()
-//producto 1
-var producto1 = Producto()
-var precio1 = Precios()
-producto1.codigo = "SUG4R14"
-producto1.nombre = "Azucar"
-precio1.precio = 3
-producto1.precios = precio1
-
-//producto a lista
-productos.append(producto1)
-
-//producto 2
-var producto2 = Producto()
-var precio2 = Precios()
-producto2.codigo = "P4P3L10"
-producto2.nombre = "Papel"
-precio2.precio = 2.5
-producto2.precios = precio2
-
-//producto a lista
-productos.append(producto2)
-
-//producto 3
-var producto3 = Producto()
-var precio3 = Precios()
-producto3.codigo = "4RR0Z55"
-producto3.nombre = "Arroz"
-precio3.precio = 3.50
-producto3.precios = precio3
-
-//producto a lista
-productos2.append(producto3)
-//producto 4
-var producto4 = Producto()
-var precio4 = Precios()
-producto4.codigo = "F1D30511"
-producto4.nombre = "Fideos"
-precio4.precio = 6.40
-producto4.precios = precio4
-
-//producto a lista
-productos2.append(producto4)
-
-//instancias
-var tiendas = [Tienda]()
-//producto 1
-var tienda = Tienda()
-tienda.ruc = "10365477892"
-tienda.nombre = "Tienda de abarrotes Pedro"
-
-//producto a lista
-tiendas.append(tienda)
-
-
-//instancia cliente
-var cliente = Cliente(
-  dni:75395147,
-  nombre:"Emanuel Palomino", 
-  productos: productos)
-var cliente2 = Cliente(
-  dni:74125896,
-  nombre:"Pepe Perez", 
-  productos: productos2)
-
-//lista de clientes
-var clientes = [Cliente]()
-clientes.append(cliente)
-clientes.append(cliente2)
-
-//lista de clientes
-for 
-cliente in clientes{
-  for 
-tienda in tiendas{
-  print()
-  print("︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻")
-  print("BOLETA DE VENTA")
-  print("-----------------------------------")
-  print()
-  print("RUC: \(tienda.ruc)")
-  print("Nombre tienda: \(tienda.nombre)")
-  print("Ganancia: \(tienda.ganancia)")
-  print()
-}
-
-  print("-----------------------------------")
-  print("DNI Cliente: \(cliente.dni)")
-  print("Nombre Cliente: \(cliente.nombre)")
-  cliente.listaProductosComprados()
-  cliente.listarPagarGeneral()
-  print()
-}
+ var operaciones2 = OperacionesAvanzadas()
+ print("\nOperaciones avanzadas")
+ print("--------------------")
+ print("Ingresar un número")
+ let entrada3 = readLine()!
+ let numero = Int(entrada3)!
+ print("Ingresar la raiz")
+ let entrada4 = readLine()!
+ let raiz = Int(entrada4)!
+ print("Ingresar la potencia")
+ let entrada5 = readLine()!
+ let potencia = Int(entrada5)!
+ operaciones2.numero = numero
+ operaciones2.raiz = raiz
+ operaciones2.potencia = potencia
+ operaciones2.Potencia(numero:numero, potencia:potencia)
+ operaciones2.Raiz(numero:numero, raiz:raiz)
+ print("El factorial de \(numero) es: \(operaciones2.Factorial())")
+ operaciones2.Sumatoria(numero:numero)

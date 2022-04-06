@@ -10,7 +10,7 @@ struct Precios{
 class Tienda{
   var ruc:String=""
   var nombre:String=""
-  var ganancia = "30%"
+  var ganancia = "24%"
 }
 class Producto{
   var codigo:String=""
@@ -51,7 +51,7 @@ class Cliente{
   
 }   
     print("TOTAL: \(totalSum)")
-    print("ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ")
+    print("︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼")
   }
   }
 
@@ -61,9 +61,9 @@ var productos2 = [Producto]()
 //producto 1
 var producto1 = Producto()
 var precio1 = Precios()
-producto1.codigo = "4c3173"
-producto1.nombre = "Aceite"
-precio1.precio = 12
+producto1.codigo = "SUG4R14"
+producto1.nombre = "Azucar"
+precio1.precio = 3
 producto1.precios = precio1
 
 //producto a lista
@@ -72,9 +72,9 @@ productos.append(producto1)
 //producto 2
 var producto2 = Producto()
 var precio2 = Precios()
-producto2.codigo = "47u2"
-producto2.nombre = "Atun"
-precio2.precio = 6.50
+producto2.codigo = "P4P3L10"
+producto2.nombre = "Papel"
+precio2.precio = 2.5
 producto2.precios = precio2
 
 //producto a lista
@@ -83,9 +83,9 @@ productos.append(producto2)
 //producto 3
 var producto3 = Producto()
 var precio3 = Precios()
-producto3.codigo = "45u54r"
-producto3.nombre = "Azucar"
-precio3.precio = 4.50
+producto3.codigo = "4RR0Z55"
+producto3.nombre = "Arroz"
+precio3.precio = 3.50
 producto3.precios = precio3
 
 //producto a lista
@@ -93,9 +93,9 @@ productos2.append(producto3)
 //producto 4
 var producto4 = Producto()
 var precio4 = Precios()
-producto4.codigo = "P4n3t0n"
-producto4.nombre = "Paneton"
-precio4.precio = 20.99
+producto4.codigo = "F1D30511"
+producto4.nombre = "Fideos"
+precio4.precio = 6.40
 producto4.precios = precio4
 
 //producto a lista
@@ -105,8 +105,8 @@ productos2.append(producto4)
 var tiendas = [Tienda]()
 //producto 1
 var tienda = Tienda()
-tienda.ruc = "100446378823"
-tienda.nombre = "Tiendita de Don Pepe"
+tienda.ruc = "10365477892"
+tienda.nombre = "Tienda de abarrotes Pedro"
 
 //producto a lista
 tiendas.append(tienda)
@@ -114,12 +114,12 @@ tiendas.append(tienda)
 
 //instancia cliente
 var cliente = Cliente(
-  dni:123456789,
-  nombre:"Levi Ackerman", 
+  dni:75395147,
+  nombre:"Emanuel Palomino", 
   productos: productos)
 var cliente2 = Cliente(
-  dni:987654321,
-  nombre:"Javiero Javi", 
+  dni:74125896,
+  nombre:"Pepe Perez", 
   productos: productos2)
 
 //lista de clientes
@@ -133,7 +133,7 @@ cliente in clientes{
   for 
 tienda in tiendas{
   print()
-  print("ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ ඞ")
+  print("︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻")
   print("BOLETA DE VENTA")
   print("-----------------------------------")
   print()
